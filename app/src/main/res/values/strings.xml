@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">GamesApp</string>
+    <string name="title">Название</string>
+    <string name="enter_title">Введите название</string>
+    <string name="date">Дата выхода</string>
+    <string name="enter_date">Введите дату выхода</string>
+    <string name="studio">Студия</string>
+    <string name="enter_studio">Введите название студии</string>
+    <string name="genre">Жанр</string>
+    <string name="enter_genre">Введите жанр</string>
+    <string name="rating">Возрастной рейтинг</string>
+    <string name="enter_rating">Введите возрастной рейтинг</string>
+    <string name="description">Описание</string>
+    <string name="enter_description">Введите описание</string>
+</resources>
