@@ -12,4 +12,5 @@
     <string name="enter_rating">Введите возрастной рейтинг</string>
     <string name="description">Описание</string>
     <string name="enter_description">Введите описание</string>
+    <string name="game_name">Game name</string>
 </resources>
