@@ -5,13 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.dmitry.gamesapp.database.GameListViewModel
 import com.dmitry.gamesapp.databinding.FragmentListBinding
 
 private lateinit var binding: FragmentListBinding
 
 class ListFragment: Fragment(R.layout.fragment_list) {
+
+    private lateinit var gameListViewModel: GameListViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -20,22 +25,27 @@ class ListFragment: Fragment(R.layout.fragment_list) {
     ): View {
         binding = FragmentListBinding.inflate(inflater, container, false)
 
-        val recyclerView = binding.recyclerView
-        recyclerView.layoutManager = LinearLayoutManager(context)
-
         return binding.root
     }
 
-    private val gameListViewModel: GameListViewModel by lazy {
-        ViewModelProvider(this).get(GameListViewModel::class.java)
-    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-    //Функция вызывается, чтобы получить экземпляр фрагмента
-    companion object {
-        fun newInstance(): ListFragment {
-            return ListFragment()
+        //Инициализация RecyclerView
+        val adapter = GameAdapter()
+        val recyclerView = binding.recyclerView
+
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        //Инициализация ViewModel
+        gameListViewModel = ViewModelProvider(this).get(GameListViewModel::class.java)
+        gameListViewModel.readData.observe(viewLifecycleOwner, Observer { game ->
+            adapter.setData(game)
+        })
+
+        binding.addGame.setOnClickListener{
+            findNavController().navigate(R.id.action_listFragment_to_detailsFragment)
         }
     }
-
-
 }

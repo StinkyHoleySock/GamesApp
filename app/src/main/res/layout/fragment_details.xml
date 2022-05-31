@@ -6,76 +6,61 @@
     android:orientation="vertical"
     android:layout_margin="16dp">
 
-    <TextView
-        style="?android:listSeparatorTextViewStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/title"/>
 
     <EditText
-        android:id="@+id/title"
+        android:id="@+id/et_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/enter_title"/>
-
-    <TextView
-        style="?android:listSeparatorTextViewStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/date"/>
+        android:hint="@string/enter_title"
+        android:layout_marginBottom="8dp"/>
 
     <EditText
-        android:id="@+id/date"
+        android:id="@+id/et_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/enter_date"/>
-
-    <TextView
-        style="?android:listSeparatorTextViewStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/studio"/>
+        android:hint="@string/enter_date"
+        android:layout_marginBottom="8dp"/>
 
     <EditText
-        android:id="@+id/studio"
+        android:id="@+id/et_studio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/enter_studio"/>
-
-    <TextView
-        style="?android:listSeparatorTextViewStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/genre"/>
+        android:hint="@string/enter_studio"
+        android:layout_marginBottom="8dp"/>
 
     <EditText
-        android:id="@+id/genre"
+        android:id="@+id/et_genre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/enter_genre"/>
-
-    <TextView
-        style="?android:listSeparatorTextViewStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/rating"/>
+        android:hint="@string/enter_genre"
+        android:layout_marginBottom="8dp"/>
 
     <EditText
-        android:id="@+id/rating"
+        android:id="@+id/et_rating"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/enter_rating"/>
-
-    <TextView
-        style="?android:listSeparatorTextViewStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/description"/>
+        android:hint="@string/enter_rating"
+        android:layout_marginBottom="8dp"/>
 
     <EditText
-        android:id="@+id/description"
+        android:id="@+id/et_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/enter_description"/>
+        android:hint="@string/enter_description"
+        android:layout_marginBottom="8dp"/>
+
+    <ImageView
+        android:id="@+id/game_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/ic_baseline_photo_camera_24"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        android:backgroundTint="#4CAF50"/>
 
 </LinearLayout>
