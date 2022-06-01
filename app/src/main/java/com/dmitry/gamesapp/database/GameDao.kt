@@ -19,3 +19,5 @@ interface GameDao {
     @Query("SELECT * FROM game_table ORDER BY id ASC")
     fun readData(): LiveData<List<Game>>
 }
+
+

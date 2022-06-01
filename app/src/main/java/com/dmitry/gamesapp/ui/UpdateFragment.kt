@@ -1,6 +1,9 @@
 package com.dmitry.gamesapp.ui
 
+import android.app.Activity
 import android.app.AlertDialog
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
@@ -8,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.dmitry.gamesapp.R
 import com.dmitry.gamesapp.database.Game
 import com.dmitry.gamesapp.databinding.FragmentUpdateBinding
@@ -17,7 +21,9 @@ private lateinit var binding: FragmentUpdateBinding
 
 class UpdateFragment: Fragment(R.layout.fragment_update) {
 
+    private val GALLERY_REQUEST_CODE = 100
     private lateinit var gameListViewModel: GameListViewModel
+    private var imageUri: Uri? = null
     private val args by navArgs<UpdateFragmentArgs>()
 
     override fun onCreateView(
@@ -27,7 +33,7 @@ class UpdateFragment: Fragment(R.layout.fragment_update) {
     ): View {
         binding = FragmentUpdateBinding.inflate(inflater, container, false)
 
-        gameListViewModel = ViewModelProvider(this).get(GameListViewModel::class.java)
+        gameListViewModel = ViewModelProvider(this)[GameListViewModel::class.java]
 
         //Обновление данных
         with(binding) {
@@ -38,6 +44,15 @@ class UpdateFragment: Fragment(R.layout.fragment_update) {
             etRating.setText(args.currentGame.rating)
             etDescription.setText(args.currentGame.description)
 
+            activity?.let {
+                Glide.with(it)
+                    .load(args.currentGame.image)
+                    .into(gameImage)
+            }
+
+            gameImage.setOnClickListener {
+                launchGallery()
+            }
             //Сохранение изменённых данных
             buttonUpdate.setOnClickListener {
                 updateDataInDatabase()
@@ -52,6 +67,7 @@ class UpdateFragment: Fragment(R.layout.fragment_update) {
 
     //Функция обновления полей
     private fun updateDataInDatabase() {
+
         //Объявление переменных
         val title = binding.etTitle.text.toString()
         val date = binding.etDate.text.toString()
@@ -60,10 +76,11 @@ class UpdateFragment: Fragment(R.layout.fragment_update) {
         val rating = binding.etRating.text.toString()
         val description = binding.etDescription.text.toString()
 
+
         //Проверка данных
-        if (inputCheck(title, date, studio, genre, rating)) {
+        if (inputCheck(title, date, studio, genre, rating) && (imageUri != null)) {
             val updateGame = Game(args.currentGame.id, title, date, studio, genre, rating, description,
-                R.drawable.ic_game_image
+                imageUri.toString()
             )
             //Добавление игры
             gameListViewModel.updateGame(updateGame)
@@ -73,7 +90,7 @@ class UpdateFragment: Fragment(R.layout.fragment_update) {
             findNavController().navigate(R.id.action_updateFragment_to_listFragment)
         } else {
             //Сообщение об ошибке
-            Toast.makeText(requireContext(), "Заполните поля!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Заполните поля или обновите картинку", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -107,9 +124,9 @@ class UpdateFragment: Fragment(R.layout.fragment_update) {
 
         builder.apply {
             setPositiveButton("Да") { _, _, ->
-                gameListViewModel.deleteGame(args.currentGame)
-                Toast.makeText(requireContext(), "Игра удалена", Toast.LENGTH_SHORT).show()
-                findNavController().navigate(R.id.action_updateFragment_to_listFragment)
+                gameListViewModel.deleteGame(args.currentGame) //Удалить текущую игру
+                Toast.makeText(requireContext(), "Игра удалена", Toast.LENGTH_SHORT).show() //Сообщение
+                findNavController().navigate(R.id.action_updateFragment_to_listFragment) //Навигация на список
             }
             setNegativeButton("Нет") { _, _, -> }
             setTitle("Удалить ${args.currentGame.title}?")
@@ -118,4 +135,27 @@ class UpdateFragment: Fragment(R.layout.fragment_update) {
         }
 
     }
+
+    private fun launchGallery() {
+
+        val intent = Intent()
+        intent.type = "image/*"
+        intent.action = Intent.ACTION_GET_CONTENT
+
+        startActivityForResult(intent, GALLERY_REQUEST_CODE)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == GALLERY_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            imageUri = data?.data!!
+            activity?.let {
+                Glide.with(it)
+                    .load(imageUri)
+                    .into(binding.gameImage)
+            }
+        }
+    }
 }
+

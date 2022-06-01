@@ -40,13 +40,15 @@ class ListFragment: Fragment(R.layout.fragment_list) {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         //Инициализация ViewModel
-        gameListViewModel = ViewModelProvider(this).get(GameListViewModel::class.java)
-        gameListViewModel.readData.observe(viewLifecycleOwner, Observer { game ->
+        gameListViewModel = ViewModelProvider(this)[GameListViewModel::class.java]
+        gameListViewModel.readData.observe(viewLifecycleOwner) { game ->
             adapter.setData(game)
-        })
+        }
 
         binding.addGame.setOnClickListener{
             findNavController().navigate(R.id.action_listFragment_to_detailsFragment)
         }
     }
 }
+
+

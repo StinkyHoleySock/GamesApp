@@ -41,5 +41,5 @@ class GameListViewModel(application: Application): AndroidViewModel(application)
             repository.deleteGame(game)
         }
     }
-
 }
+
