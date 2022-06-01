@@ -22,7 +22,7 @@
         android:src="@drawable/ic_add"
         android:clickable="true"
         android:focusable="true"
-        android:backgroundTint="#4CAF50"
+        android:backgroundTint="#673AB7"
         app:borderWidth="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

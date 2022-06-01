@@ -1,4 +1,4 @@
-package com.dmitry.gamesapp
+package com.dmitry.gamesapp.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.dmitry.gamesapp.database.GameListViewModel
+import com.dmitry.gamesapp.R
+import com.dmitry.gamesapp.viewmodel.GameListViewModel
 import com.dmitry.gamesapp.databinding.FragmentListBinding
 
 private lateinit var binding: FragmentListBinding

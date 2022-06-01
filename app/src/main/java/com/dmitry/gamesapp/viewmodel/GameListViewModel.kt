@@ -1,9 +1,12 @@
-package com.dmitry.gamesapp.database
+package com.dmitry.gamesapp.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import com.dmitry.gamesapp.database.Game
+import com.dmitry.gamesapp.database.GameDatabase
+import com.dmitry.gamesapp.database.GameRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -24,6 +27,18 @@ class GameListViewModel(application: Application): AndroidViewModel(application)
         //Запуск корутины на IO потоке
         viewModelScope.launch(Dispatchers.IO) {
             repository.addGame(game)
+        }
+    }
+
+    fun updateGame(game: Game){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.updateGame(game)
+        }
+    }
+
+    fun deleteGame(game: Game){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteGame(game)
         }
     }
 

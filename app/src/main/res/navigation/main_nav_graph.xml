@@ -6,18 +6,32 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.dmitry.gamesapp.ListFragment"
+        android:name="com.dmitry.gamesapp.ui.ListFragment"
         android:label="Игры">
         <action
             android:id="@+id/action_listFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
-        android:name="com.dmitry.gamesapp.DetailsFragment"
+        android:name="com.dmitry.gamesapp.ui.DetailsFragment"
         android:label="Игра">
         <action
             android:id="@+id/action_detailsFragment_to_listFragment"
             app:destination="@id/listFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.dmitry.gamesapp.ui.UpdateFragment"
+        android:label="UpdateFragment" >
+        <action
+            android:id="@+id/action_updateFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <argument
+            android:name="currentGame"
+            app:argType="com.dmitry.gamesapp.database.Game" />
     </fragment>
 </navigation>

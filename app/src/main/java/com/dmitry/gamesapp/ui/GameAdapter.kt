@@ -1,9 +1,11 @@
-package com.dmitry.gamesapp
+package com.dmitry.gamesapp.ui
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.dmitry.gamesapp.R
 import com.dmitry.gamesapp.database.Game
 import kotlinx.android.synthetic.main.game_item.view.*
 
@@ -28,6 +30,11 @@ class GameAdapter() : RecyclerView.Adapter<GameAdapter.GameViewHolder>() {
         val currentItem = gameList[position]
         holder.itemView.game_title.text = currentItem.title
         holder.itemView.game_image.setImageResource(currentItem.image)
+
+        holder.itemView.game_layout.setOnClickListener {
+            val action = ListFragmentDirections.actionListFragmentToUpdateFragment(currentItem)
+            holder.itemView.findNavController().navigate(action)
+        }
     }
 
     //Метод возвращает количество элементов

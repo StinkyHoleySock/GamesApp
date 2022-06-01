@@ -57,10 +57,10 @@
         android:src="@drawable/ic_photo"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_save"
+        android:id="@+id/button_update"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/save"
+        android:text="@string/update"
         android:backgroundTint="#673AB7"/>
 
 </LinearLayout>

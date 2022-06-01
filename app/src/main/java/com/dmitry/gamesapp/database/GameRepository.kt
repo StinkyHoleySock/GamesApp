@@ -6,7 +6,15 @@ class GameRepository(private val gameDao: GameDao) {
 
     val readData: LiveData<List<Game>> = gameDao.readData()
 
-    suspend fun addGame(game: Game){
+    fun addGame(game: Game){
         gameDao.addGame(game)
+    }
+
+    fun updateGame(game: Game){
+        gameDao.updateGame(game)
+    }
+
+    fun deleteGame(game: Game){
+        gameDao.deleteGame(game)
     }
 }
