@@ -10,7 +10,5 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //Установка экшен-бара (названия фрагментов в шапке)
-        //setupActionBarWithNavController(findNavController(R.id.container_view))
     }
 }

@@ -31,8 +31,6 @@ class GameAdapter : RecyclerView.Adapter<GameAdapter.GameViewHolder>() {
             .load(currentItem.image)
             .into(holder.itemView.game_image)
 
-        //holder.itemView.game_image.setImageResource(currentItem.image)
-
         holder.itemView.game_layout.setOnClickListener {
             val action = ListFragmentDirections.actionListFragmentToUpdateFragment(currentItem)
             holder.itemView.findNavController().navigate(action)
