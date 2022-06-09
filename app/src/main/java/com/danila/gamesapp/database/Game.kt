@@ -1,4 +1,4 @@
-package com.dmitry.gamesapp.database
+package com.danila.gamesapp.database
 
 import android.os.Parcelable
 import androidx.room.Entity

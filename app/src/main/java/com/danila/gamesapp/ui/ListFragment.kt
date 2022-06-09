@@ -1,17 +1,16 @@
-package com.dmitry.gamesapp.ui
+package com.danila.gamesapp.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.dmitry.gamesapp.R
-import com.dmitry.gamesapp.viewmodel.GameListViewModel
-import com.dmitry.gamesapp.databinding.FragmentListBinding
+import com.danila.gamesapp.R
+import com.danila.gamesapp.viewmodel.GameListViewModel
+import com.danila.gamesapp.databinding.FragmentListBinding
 
 private lateinit var binding: FragmentListBinding
 

@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.dmitry.gamesapp.ui.ListFragment"
+        android:name="com.danila.gamesapp.ui.ListFragment"
         android:label="Игры">
         <action
             android:id="@+id/action_listFragment_to_detailsFragment"
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
-        android:name="com.dmitry.gamesapp.ui.DetailsFragment"
+        android:name="com.danila.gamesapp.ui.DetailsFragment"
         android:label="Игра">
         <action
             android:id="@+id/action_detailsFragment_to_listFragment"
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/updateFragment"
-        android:name="com.dmitry.gamesapp.ui.UpdateFragment"
+        android:name="com.danila.gamesapp.ui.UpdateFragment"
         android:label="UpdateFragment" >
         <action
             android:id="@+id/action_updateFragment_to_listFragment"

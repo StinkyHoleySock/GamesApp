@@ -1,4 +1,4 @@
-package com.dmitry.gamesapp
+package com.danila.gamesapp
 
 import org.junit.Test
 

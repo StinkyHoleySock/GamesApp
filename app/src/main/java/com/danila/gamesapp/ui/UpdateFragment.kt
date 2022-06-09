@@ -1,4 +1,4 @@
-package com.dmitry.gamesapp.ui
+package com.danila.gamesapp.ui
 
 import android.app.Activity
 import android.app.AlertDialog
@@ -12,10 +12,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
-import com.dmitry.gamesapp.R
-import com.dmitry.gamesapp.database.Game
-import com.dmitry.gamesapp.databinding.FragmentUpdateBinding
-import com.dmitry.gamesapp.viewmodel.GameListViewModel
+import com.danila.gamesapp.R
+import com.danila.gamesapp.database.Game
+import com.danila.gamesapp.databinding.FragmentUpdateBinding
+import com.danila.gamesapp.viewmodel.GameListViewModel
 
 private lateinit var binding: FragmentUpdateBinding
 

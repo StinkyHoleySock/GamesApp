@@ -1,4 +1,4 @@
-package com.dmitry.gamesapp.ui
+package com.danila.gamesapp.ui
 
 import android.app.Activity
 import android.content.Intent
@@ -8,15 +8,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.graphics.drawable.toIcon
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
-import com.dmitry.gamesapp.R
-import com.dmitry.gamesapp.database.Game
-import com.dmitry.gamesapp.viewmodel.GameListViewModel
-import com.dmitry.gamesapp.databinding.FragmentDetailsBinding
+import com.danila.gamesapp.R
+import com.danila.gamesapp.database.Game
+import com.danila.gamesapp.viewmodel.GameListViewModel
+import com.danila.gamesapp.databinding.FragmentDetailsBinding
 
 class DetailsFragment: Fragment(R.layout.fragment_details) {
 

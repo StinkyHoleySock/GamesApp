@@ -1,4 +1,4 @@
-package com.dmitry.gamesapp.ui
+package com.danila.gamesapp.ui
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.dmitry.gamesapp.R
-import com.dmitry.gamesapp.database.Game
+import com.danila.gamesapp.R
+import com.danila.gamesapp.database.Game
 import kotlinx.android.synthetic.main.game_item.view.*
 
 class GameAdapter : RecyclerView.Adapter<GameAdapter.GameViewHolder>() {
